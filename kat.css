@@ -1,0 +1,503 @@
+/*
+ * TOC:
+ *     <body>
+ *     main containers
+ *     #header items
+ *     .entry and its items
+ *     #comments items
+ *     #sidebar items
+ *     #footer item(s)
+ *     <a href's>
+ *     some (un)useful helpers
+ *
+ * TODO|TOFIX:
+ *     Navigation items are rendered in reverse order :))
+ *     <a href's> bottom border with "background: url(i/dots.gif) repeat-x bottom"? (not likely)
+ *
+ * kat will kill me for:
+ *     #wrapper has shrank by 1px
+ *     #sidebar is not full-height
+ *     In IE padding between .entries is not present...
+ **/
+
+/******************************************/
+/* Body always comes first                */
+/******************************************/
+
+body {
+    background-image: url(i/bg.gif);
+    font-family: "lucida sans serif", tahoma, verdana, helvetica, sans-serif;
+    font-size: 8.9pt; /* Still haven't decided, if it's better than 75% */
+    text-align: center;
+    color: #4B4B4B;
+    line-height: 180%;
+    letter-spacing: .1em;
+    padding: 0;
+    margin: 1em auto 2em; /* Strange, but margin is the one that counts (not padding) */
+}
+
+/******************************************/
+/* Main containers                        */
+/******************************************/
+
+div#wrapper { /* Everything is wrapped in plast... Sorry. Everything is wrapped in this container. */
+    width: 769px; /* +/- 1 pixel. Who cares. :) Kat will kill me */
+    background: #fff url(i/bg_wrapper.gif) no-repeat top;
+    margin: 0 auto;
+    text-align: left;
+    padding: 14px 0 0 0;
+}
+
+div#header {
+    margin: 0 14px 10px 14px;
+    padding: 0 0 10px 0;
+    width: 741px;
+    background: url(i/bg_header.jpg) no-repeat bottom ;
+    cursor: pointer;
+}
+
+div#content {
+    margin: 0;
+    padding: 5px 0 0 24px;
+    float: left;
+    width: 490px;
+}
+
+div#sidebar {
+    color: #726C57;
+    font-size: 90%;
+    line-height: 160%;
+    padding: 5px 15px 20px;
+    margin-right: 14px;
+    margin-left: 538px;
+    border: 1px solid #ede9e3;
+    background-color: #fbf5e9
+}
+
+div#footer {
+    background: url(i/bg_footer.gif) no-repeat bottom;
+    padding: 5px 30px 10px;
+    clear: both;
+    font-size: 91%;
+    line-height: 150%;
+    margin: 0;
+    color: #6A6A6A;
+}
+
+/******************************************/
+/* #header items                          */
+/******************************************/
+
+div#header ul {
+    clear: both;
+    margin: 0;
+    padding: 85px 0 0 0;
+    list-style-type: none;
+}
+
+div#header ul li {
+    float: right;
+    background: url(i/nav_right.gif) no-repeat right top;
+    padding: 0;
+    margin: 0 0 0 1px;
+}
+
+div#header ul li.current {
+    background: url(i/nav_right_on.gif) no-repeat right top;
+}
+
+div#header ul li a:hover {
+    color: #ccc;
+}
+
+/******************************************/
+/* How an entry would look like           */
+/******************************************/
+
+.entry {
+    border-bottom: 1px solid #EAE9E6;
+    float: left;
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* Let's make sure, that  great margin-top  */
+/* is NOT added to 1st entry                */
+div.entry {
+    margin-bottom: 33px;
+}
+
+#comments h2,
+.entry h2,
+.entry h2 a:link,
+.entry h2 a:visited,
+.entry h2 a:hover,
+.entry h2 a:active {
+    font-family: georgia, serif;
+    font-weight: normal;
+    color: #726C57;
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.entry p,
+.entry dl {
+    margin: .5em 5px .5em 15px;
+    padding: 0;
+}
+
+.entry blockquote {
+    margin: auto 30px auto 60px;
+    padding: .2em 1em;
+    border: 1px solid #FBF4E6;
+    background-color: #FDFAF4;
+}
+
+.entry blockquote p {
+    margin: .5em 0;
+    padding: 0;
+}
+
+.entry pre {
+    margin: auto 15px auto 15px;
+    padding: .2em 1em;
+    font-size: 90%;
+    line-height: 140%;
+    font-family: "lucida sans serif", tahoma, verdana, helvetica, sans-serif;
+    border: 1px solid #F4E6FB;
+    background-color: #FAF4FD;
+    white-space: default;
+}
+
+.entry ul {
+    list-style-image: url(i/bullet.gif);
+    padding-left: 20px;
+    margin-left: 50px;
+}
+
+.entry ul.entrydesc {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    list-style-image: none;
+    width: 100%;
+    clear: both;
+    border-bottom: 1px solid #EAE9E6;
+    font-size: 90%;
+}
+
+.entry ul.entrydesc li {
+    float: left;
+    padding: 0 18px;
+}
+
+.entry ul.entrydesc li.created {
+    background: url(i/clock.gif) no-repeat left;
+}
+
+.entry ul.entrydesc li.comments {
+    background: url(i/blabla.gif) no-repeat left;
+}
+
+.entry img {
+    border: 1px solid #D6D1C0;
+    padding: 3px;
+    margin: 10px;
+}
+
+.entry img.left {
+    margin-left: 0;
+    float: left;
+}
+
+.entry img.right {
+    margin-right: 0;
+    float: right;
+}
+
+.entry .readmore {
+    padding-left: 15px;
+    background: url(i/more.gif) no-repeat left;
+}
+
+/******************************************/
+/* #comments items                        */
+/******************************************/
+
+#comments {
+    margin: 0;
+    padding: 0;
+    clear: left;
+}
+
+#comments h2 {
+    padding-top: .5em;
+}
+
+#comments dl,
+#comments dt,
+#comments dd{
+    margin: 0;
+    display: block;
+    width: 100%;
+    padding: 0;
+}
+
+#comments form {
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid #ccc;
+}
+
+#comments form .text:focus,
+#comments form .text:focus {
+    background-color: #ffc;
+}
+
+#comments form .text {
+    width: 99%;
+    border: 1px solid #999;
+    background-color: #f0f0f0;
+}
+
+#comments form .checkbox {
+    vertical-align: middle;
+}
+
+#comments form .submit {
+    vertical-align: middle;
+    border-style: solid;
+    border-color: #CFC6B5;
+    border-width: 1px;
+    color: #fff;
+    background-color: #A7986A;
+}
+
+ol#commentslist {
+    margin: 0;
+    padding: 0 0 0 1em;
+    list-style-image: url(i/bullet.gif);
+    font-size: 97%;
+    line-height: 140%;
+    list-style-type: none;
+}
+
+ol#commentslist li {
+    margin: 5px 1em 5px 0;
+    list-style-image: none;
+    padding: 1em;
+    list-style-type: none;
+    border: 1px solid #fff;
+}
+
+ol#commentslist li:hover {
+    border: 1px solid #ccc;
+}
+
+ol#commentslist li.odd {
+    background-color: #f9f9f9;
+}
+
+ol#commentslist li.superb {
+    border: 1px solid #c00;
+}
+
+ol#commentslist li dl,
+ol#commentslist li dl dd {
+    margin: 0;
+    padding: 0;
+}
+
+ol#commentslist li dl dd.comment {
+    padding: 0 1em;
+    clear: both;
+}
+
+ol#commentslist li dl dt {
+    display: none;
+}
+
+ol#commentslist li dl dd p {
+    padding: 0;
+    margin: .5em 1em;
+}
+
+ol#commentslist li dl dd li:hover,
+ol#commentslist li dl dd li {
+    padding: 0;
+    margin: 0;
+    list-style-image: url(i/bullet.gif);
+    border: 0;
+}
+
+ol#commentslist li dl dd.author {
+    color: #000;
+}
+
+/******************************************/
+/* Sidebar has some overrides             */
+/******************************************/
+
+#sidebar .readmore {
+    padding-right: 13px;
+    background: url(i/more.gif) no-repeat right;
+}
+
+#sidebar ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+#sidebar h2 {
+    font-size: 100%;
+    padding: 0;
+    margin: 1em 0;
+}
+
+#sidebar p {
+    padding: 0;
+    margin: .5em 0;
+}
+
+#sidebar form input.text {
+    border: 1px solid #CFC6B5;
+    vertical-align: middle;
+    color: #4B4B4B;
+    width: 120px;
+}
+
+#sidebar form input.submit {
+    vertical-align: middle;
+    border-style: solid;
+    border-color: #CFC6B5;
+    border-width: 1px;
+    color: #fff;
+    background-color: #A7986A;
+}
+
+#sidebar form input.text:focus {
+    background-color: #ffc;
+}
+
+#sidebar form {
+    margin: 0;
+    padding: 0;
+}
+
+/******************************************/
+/* Footer is footer (even in Aftrica). It */
+/* is smaller than everything else.       */
+/******************************************/
+
+#footer p {
+    margin: 0;
+    padding: .5em;
+}
+
+/******************************************/
+/* Links go here. They can be very tricky */
+/******************************************/
+
+a:link,
+a:hover,
+a:visited,
+a:active {
+    color: #88142A;
+    text-decoration: none;
+    border-bottom: 1px dotted #88142A;
+}
+
+a:hover,
+a:active {
+    color: #f00;
+    border-bottom: 1px dotted #f00;
+}
+
+
+div#header ul li a:link,
+div#header ul li a:visited,
+div#header ul li a:hover,
+div#header ul li a:active {
+    display: block;
+    background: url(i/nav_left.gif) no-repeat left top;
+    padding: 5px 15px;
+    color: #fff;
+    border: none;
+    text-decoration: none;
+}
+    
+div#header ul li.current a:link,
+div#header ul li.current a:visited,
+div#header ul li.current a:hover,
+div#header ul li.current a:active {
+    border: none;
+    background: url(i/nav_left_on.gif) no-repeat left top;
+}
+    
+#sidebar a:link,
+#sidebar a:visited {
+    color: #726C57;
+    border-color: #726C57;
+}
+
+#sidebar a:hover,
+#sidebar a:active {
+    color: #000;
+    border-color: #000;
+}
+
+/******************************************/
+/* Helpers                                */
+/******************************************/
+
+div#header ul:after,
+.entry:after,
+.entry ul.entrydesc:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.skipper {
+    display: none;
+}
+
+/* We're hiding H1 for CSS-aware devices, because there are another thingies for `em */
+h1 {
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+
+p.error {
+    padding: 1em;
+    background-color: #fdd;
+    color: #f00;
+    font-weight: bold;
+    border: 1px solid #c00;
+}
+
+.help p {
+    color: #666;
+    line-height: 140%;
+    font-size: 90%;
+}
+
+.help h3 {
+    color: #966;
+}
+
+.help p code {
+    color: #966;
+    font-family: "lucida sans serif", tahoma, verdana, helvetica, sans-serif;
+}
+
+input,
+textarea {
+    font-family: "lucida sans serif", tahoma, verdana, helvetica, sans-serif;
+    font-size: 100%;
+    color: #333;
+}
